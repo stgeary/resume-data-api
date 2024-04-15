@@ -2,7 +2,7 @@ class EducationsController < ApplicationController
   before_action :set_education, only: [:show, :edit, :update, :destroy]
 
   def index
-    @educations = Education.where(student_id: current_user.id)
+    @educations = Education.where(student_id: current_student.id)
     render :index
   end
 
@@ -19,7 +19,7 @@ class EducationsController < ApplicationController
 
   def create
     @education = Education.new(education_params)
-    @education.student_id = current_user.id
+    @education.student_id = current_student.id
 
     if @education.save
       redirect_to @education, notice: 'Education was successfully created.'
@@ -29,7 +29,7 @@ class EducationsController < ApplicationController
   end
 
   def update
-    if @education.update(education_params.merge(student_id: current_user.id))
+    if @education.update(education_params.merge(student_id: current_student.id))
       redirect_to @education, notice: 'Education was successfully updated.'
     else
       render :edit
@@ -44,7 +44,7 @@ class EducationsController < ApplicationController
   private
 
     def set_education
-      @education = Education.find_by(id: params[:id], student_id: current_user.id)
+      @education = Education.find_by(id: params[:id], student_id: current_student.id)
     end
 
     def education_params
