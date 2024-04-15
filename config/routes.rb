@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   resources :educations
   resources :experiences
   resources :sessions
+  resources :skills
 
   get "/students" => "students#index"
   get "students/:id" => "students#show"
@@ -23,4 +24,10 @@ Rails.application.routes.draw do
   post "/studentskills" => "studentskills#create"
   patch "/studentskills/:id" => "studentskills#update"
   delete "/studentskills/:id" => "studentskills#destroy"
+
+  get "/skills" => "skills#index"
+  get "/skills" => "skills#show"
+  post "/skills" => "skills#create"
+  patch "/skills/:id" => "skills#update"
+  delete "/skills/:id" => "skills#destroy"
 end
