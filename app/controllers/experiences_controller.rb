@@ -19,7 +19,7 @@ class ExperiencesController < ApplicationController
 
   def create
     @experience = Experience.new(experience_params)
-    @experience.student_id = current_user.id  # Set student_id to current_user's id
+    @experience.student_id = current_user.id
 
     if @experience.save
       redirect_to @experience, notice: 'Experience was successfully created.'

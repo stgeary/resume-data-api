@@ -9,8 +9,8 @@ Skill.destroy_all
 
 # Seed Students
 students = Student.create!([
-  { first_name: "Alice", last_name: "Johnson", email: "alice.johnson@example.com", phone_number: "123-456-7890", short_bio: "Web developer with a passion for Ruby on Rails.", linkedin_url: "https://linkedin.com/in/alicejohnson", twitter_handle: "@alicej", personal_url: "http://alicejohnson.com", resume_url: "http://alicejohnson.com/resume.pdf", github_url: "https://github.com/alicej", photo: "path/to/photo1.jpg", password_digest: "somehashedpassword" },
-  { first_name: "Bob", last_name: "Smith", email: "bob.smith@example.com", phone_number: "098-765-4321", short_bio: "Data analyst and Python enthusiast.", linkedin_url: "https://linkedin.com/in/bobsmith", twitter_handle: "@bobs", personal_url: "http://bobsmith.com", resume_url: "http://bobsmith.com/resume.pdf", github_url: "https://github.com/bobs", photo: "path/to/photo2.jpg", password_digest: "somehashedpassword2" }
+  { first_name: "Alice", last_name: "Johnson", email: "alice.johnson@example.com", phone_number: "123-456-7890", short_bio: "Web developer with a passion for Ruby on Rails.", linkedin_url: "https://linkedin.com/in/alicejohnson", twitter_handle: "@alicej", personal_url: "http://alicejohnson.com", resume_url: "http://alicejohnson.com/resume.pdf", github_url: "https://github.com/alicej", photo: "path/to/photo1.jpg", password: "123", password_confirmation: "123" },
+  { first_name: "Bob", last_name: "Smith", email: "bob.smith@example.com", phone_number: "098-765-4321", short_bio: "Data analyst and Python enthusiast.", linkedin_url: "https://linkedin.com/in/bobsmith", twitter_handle: "@bobs", personal_url: "http://bobsmith.com", resume_url: "http://bobsmith.com/resume.pdf", github_url: "https://github.com/bobs", photo: "path/to/photo2.jpg", password: "123", password_confirmation: "123" }
 ])
 
 # Seed Capstones
