@@ -6,11 +6,6 @@ class StudentskillsController < ApplicationController
     render :index
   end
 
-  def one_studentskill
-    @studentskill = StudentSkill.first
-    render :show
-  end
-
   def show
     @studentskill = StudentSkill.find_by(id: params[:id])
     render :show
