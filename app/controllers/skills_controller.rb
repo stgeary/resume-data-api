@@ -4,12 +4,12 @@ class SkillsController < ApplicationController
     before_action :set_experience, only: [:show, :edit, :update, :destroy]
 
     def index
-      @experiences = @student.all
+      @skills = Skill.all
       render :index
     end
 
     def create
-      @skill = @student.create(
+      @skill = Skill.create(
         skill_name: params["skill_name"],
       )
 
