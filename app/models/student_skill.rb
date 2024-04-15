@@ -1,4 +1,4 @@
 class StudentSkill < ApplicationRecord
-  belongs_to :students
-  belongs_to :skills
+  belongs_to :student
+  belongs_to :skill
 end
