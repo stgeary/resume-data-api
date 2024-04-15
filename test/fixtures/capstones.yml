@@ -5,9 +5,11 @@ one:
   description: MyString
   url: MyString
   screenshot: MyString
+  student_id: MyInt
 
 two:
   name: MyString
   description: MyString
   url: MyString
   screenshot: MyString
+  student_id: MyInt
