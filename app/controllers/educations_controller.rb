@@ -3,6 +3,7 @@ class EducationsController < ApplicationController
 
   def index
     @educations = Education.all
+    render :index
   end
 
 
@@ -18,7 +19,7 @@ class EducationsController < ApplicationController
   def edit
   end
 
-  # POST /educations
+
   def create
     @education = Education.new(education_params)
     if @education.save
