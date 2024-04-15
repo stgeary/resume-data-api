@@ -10,4 +10,5 @@ Rails.application.routes.draw do
 
   resources :educations
   resources :experiences
+  resources :sessions
 end
