@@ -1,31 +1,30 @@
-# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
-
+# test/fixtures/students.yml
 one:
-  first_name: MyString
-  last_name: MyString
-  email: MyString
-  phone_number: MyString
-  short_bio: MyString
-  linkedin_url: MyString
-  twitter_handle: MyString
-  personal_url: MyString
-  resume_url: MyString
-  github_url: MyString
-  photo: MyString
-  password: MyString
-  password_confirmation: MyString
+  id: 1
+  first_name: Alice
+  last_name: Johnson
+  email: alice@example.com
+  phone_number: "1234567890"
+  short_bio: "Developer and tech enthusiast."
+  linkedin_url: "https://linkedin.com/in/alicejohnson"
+  twitter_handle: "@alicej"
+  personal_url: "http://alicejohnson.com"
+  resume_url: "http://alicejohnson.com/resume.pdf"
+  github_url: "https://github.com/alicej"
+  photo: "path/to/alice_photo.jpg"
+  password_digest: <%= BCrypt::Password.create('password123').to_s %>
 
 two:
-  first_name: MyString
-  last_name: MyString
-  email: MyString
-  phone_number: MyString
-  short_bio: MyString
-  linkedin_url: MyString
-  twitter_handle: MyString
-  personal_url: MyString
-  resume_url: MyString
-  github_url: MyString
-  photo: MyString
-  password: MyString
-  password_confirmation: MyString
+  id: 2
+  first_name: Bob
+  last_name: Smith
+  email: bob@example.com
+  phone_number: "9876543210"
+  short_bio: "Tech writer and analyst."
+  linkedin_url: "https://linkedin.com/in/bobsmith"
+  twitter_handle: "@bobsmith"
+  personal_url: "http://bobsmith.com"
+  resume_url: "http://bobsmith.com/resume.pdf"
+  github_url: "https://github.com/bobsmith"
+  photo: "path/to/bob_photo.jpg"
+  password_digest: <%= BCrypt::Password.create('securepassword').to_s %>
