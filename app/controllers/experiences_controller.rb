@@ -2,7 +2,7 @@ class ExperiencesController < ApplicationController
   before_action :set_experience, only: [:show, :edit, :update, :destroy]
 
   def index
-    @experiences = Experience.where(student_id: current_user.id)
+    @experiences = Experience.where(student_id: current_student.id)
     render :index
   end
 
@@ -19,7 +19,7 @@ class ExperiencesController < ApplicationController
 
   def create
     @experience = Experience.new(experience_params)
-    @experience.student_id = current_user.id
+    @experience.student_id = current_student.id
 
     if @experience.save
       redirect_to @experience, notice: 'Experience was successfully created.'
@@ -29,7 +29,7 @@ class ExperiencesController < ApplicationController
   end
 
   def update
-    if @experience.update(experience_params.merge(student_id: current_user.id))
+    if @experience.update(experience_params.merge(student_id: current_student.id))
       redirect_to @experience, notice: 'Experience was successfully updated.'
     else
       render :edit
@@ -44,7 +44,7 @@ class ExperiencesController < ApplicationController
   private
 
     def set_experience
-      @experience = Experience.find_by(id: params[:id], student_id: current_user.id)
+      @experience = Experience.find_by(id: params[:id], student_id: current_student.id)
     end
 
     def experience_params
