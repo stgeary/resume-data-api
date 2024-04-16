@@ -8,6 +8,11 @@ class SkillsController < ApplicationController
       render :index
     end
 
+    def show
+      @skill = Skill.find_by(id: params["id"])
+      render :show
+    end
+
     def create
       @skill = Skill.create(
         skill_name: params["skill_name"],
