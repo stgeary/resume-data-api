@@ -1,42 +1,39 @@
 class SkillsController < ApplicationController
-  class ExperiencesController < ApplicationController
-    before_action :set_student
-    before_action :set_experience, only: [:show, :edit, :update, :destroy]
+  before_action :set_skill, only: [:show, :edit, :update, :destroy]
 
-    def index
-      @skills = Skill.all
-      render :index
-    end
+  def index
+    @skills = Skill.all
+    render :index
+  end
 
-    def show
-      @skill = Skill.find_by(id: params["id"])
+  def show
+    @skill = Skill.find_by(id: params["id"])
+    render :show
+  end
+
+  def create
+    @skill = Skill.create(
+      skill_name: params["skill_name"],
+    )
+
+    if @skill.save
       render :show
+    else
+      render json: { errors: @skill.errors.full_messages }, status: :bad_request
     end
+  end
 
-    def create
-      @skill = Skill.create(
-        skill_name: params["skill_name"],
-      )
+  def update
+    @skill = Skill.find_by(id: params["id"])
+    @skill.update(
+      skill_name: params["skill_name"],
+    )
+    render :show
+  end
 
-      if @skill.save
-        render :show
-      else
-        render json: { errors: @skill.errors.full_messages }, status: :bad_request
-      end
-    end
-
-    def update
-      @skill = Skill.find_by(id: params["id"])
-      @skill.update(
-        skill_name: params["skill_name"],
-      )
-      render :show
-    end
-
-    def destroy
-      @skill = Skill.find_by(id: params["id"])
-      @skill.destroy
-      render json: { message: "data successfully destroyed" }
-    end
+  def destroy
+    @skill = Skill.find_by(id: params["id"])
+    @skill.destroy
+    render json: { message: "data successfully destroyed" }
   end
 end
