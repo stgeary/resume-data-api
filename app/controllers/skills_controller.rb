@@ -1,4 +1,5 @@
 class SkillsController < ApplicationController
+
   before_action :set_skill, only: [:show, :update, :destroy]
 
   def index
@@ -40,10 +41,12 @@ class SkillsController < ApplicationController
   private
 
   def set_skill
+
     @skill = Skill.find_by(id: params["id"])
     unless @skill
       render json: { error: "Skill not found" }, status: :not_found
     end
   end
+
 
 end
