@@ -9,4 +9,7 @@ json.personal_url student.personal_url
 json.resume_url student.resume_url
 json.github_url student.github_url
 json.photo student.photo
-json.password_digest student.password_digest
+json.education student.educations
+json.experience student.experiences
+json.capstone student.capstones
+json.skill student.skills
