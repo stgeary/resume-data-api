@@ -1,5 +1,5 @@
 class SkillsController < ApplicationController
-  before_action :set_skill, only: [:show, :edit, :update, :destroy]
+  before_action :set_skill, only: [:show, :create, :update, :destroy]
 
   def index
     @skills = Skill.all
@@ -35,5 +35,15 @@ class SkillsController < ApplicationController
     @skill = Skill.find_by(id: params["id"])
     @skill.destroy
     render json: { message: "data successfully destroyed" }
+  end
+
+  private
+
+  def set_skill
+    @skill = Skill.find_by(id: params[:id])
+  end
+
+  def skill_params
+    params.require(:skill).permit(:skill_name)
   end
 end
