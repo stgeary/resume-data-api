@@ -1,6 +1,6 @@
 class ExperiencesController < ApplicationController
   before_action :set_experience, only: [:show, :edit, :update, :destroy]
-  before_action :autheticate_user, only: [:show, :edit, :update, :destroy]
+  before_action :autheticate_student, only: [:show, :edit, :update, :destroy]
 
   def index
     @experiences = Experience.where(student_id: current_student.id)
