@@ -1,6 +1,6 @@
 class StudentskillsController < ApplicationController
   before_action :set_studentskill, only: [:show, :create, :update, :destroy]
-  before_action :autheticate_user, only: [:show, :create, :update, :destroy]
+  before_action :autheticate_student, only: [:show, :create, :update, :destroy]
 
   def index
     @studentskills = StudentSkill.all
@@ -31,16 +31,16 @@ class StudentskillsController < ApplicationController
 
   def destroy
     @studentskill.destroy
-    redirect_to studentskills_url, notice: "Student Skill was successfully destroyed."
+    redirect_to @studentskill, notice: "Student Skill was successfully destroyed."
   end
 
   private
 
   def set_studentskill
-    @studentskill = StudentSkill.find(params[:id])
+    @studentskill = StudentSkill.find_by(params[:id])
   end
 
   def studentskill_params
-    params.require(:student_skill).permit(:student_id, :skill_id)
+    params.permit(:student_id, :skill_id)
   end
 end
