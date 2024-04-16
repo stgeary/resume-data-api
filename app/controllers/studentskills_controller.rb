@@ -1,5 +1,6 @@
 class StudentskillsController < ApplicationController
-  before_action :set_studentskill, only: [:show, :edit, :update, :destroy]
+  before_action :set_studentskill, only: [:show, :create, :update, :destroy]
+  before_action :autheticate_user, only: [:show, :create, :update, :destroy]
 
   def index
     @studentskills = StudentSkill.all
