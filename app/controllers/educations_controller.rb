@@ -1,6 +1,6 @@
 class EducationsController < ApplicationController
   before_action :set_education, only: [:show, :edit, :update, :destroy]
-  before_action :autheticate_student, only: [:show, :edit, :update, :destroy]
+  before_action :autheticate_student, only: [ :edit, :update, :destroy]
 
 
   def index

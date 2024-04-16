@@ -1,10 +1,10 @@
 class CapstonesController < ApplicationController
-  before_action :set_capstone, only: [:show, :edit, :update, :destroy]
-  before_action :authenticate_student, only: [:show, :edit, :update, :destroy, :new, :create]
+  before_action :set_capstone, only: [:show, :update, :destroy]
+  before_action :authenticate_student, only: [ :update, :destroy, :new, :create]
 
 
   def index
-    @capstones = Capstone.where(student_id: current_student.id)
+    @capstones = Capstone.all
     render :index
   end
 
