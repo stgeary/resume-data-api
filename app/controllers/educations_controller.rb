@@ -1,5 +1,7 @@
 class EducationsController < ApplicationController
   before_action :set_education, only: [:show, :edit, :update, :destroy]
+  before_action :autheticate_student, only: [:show, :edit, :update, :destroy]
+
 
   def index
     @educations = Education.where(student_id: current_student.id)
