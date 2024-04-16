@@ -1,7 +1,6 @@
 class SkillsController < ApplicationController
-
   before_action :set_skill, only: [:show, :update, :destroy]
-  before_action :autheticate_student, only: [:show, :edit, :update, :destroy]
+  before_action :autheticate_student, only: [:create, :update, :destroy]
 
   def index
     @skills = Skill.all
@@ -42,12 +41,9 @@ class SkillsController < ApplicationController
   private
 
   def set_skill
-
     @skill = Skill.find_by(id: params["id"])
     unless @skill
       render json: { error: "Skill not found" }, status: :not_found
     end
   end
-
-
 end
