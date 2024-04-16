@@ -12,7 +12,7 @@ Rails.application.routes.draw do
   resources :experiences
   resources :sessions
   resources :skills
-  recsources :capstones
+  resources :capstones
 
   get "/students" => "students#index"
   get "students/:id" => "students#show"

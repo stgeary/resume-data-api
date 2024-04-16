@@ -17,8 +17,7 @@ class CapstonesController < ApplicationController
     @capstone = Capstone.new
   end
 
-  def edit
-  end
+
 
   def create
     @capstone = Capstone.new(capstone_params)
@@ -31,7 +30,7 @@ class CapstonesController < ApplicationController
     end
   end
 
-  # PATCH/PUT /capstones/1
+
   def update
     if @capstone.update(capstone_params.merge(student_id: current_student.id))
       redirect_to @capstone, notice: 'Capstone was successfully updated.'
@@ -40,7 +39,7 @@ class CapstonesController < ApplicationController
     end
   end
 
-  # DELETE /capstones/1
+
   def destroy
     @capstone.destroy
     redirect_to capstones_url, notice: 'Capstone was successfully destroyed.'
