@@ -1,5 +1,6 @@
 class StudentsController < ApplicationController
   before_action :set_student, only: [:show, :update, :destroy]
+  before_action :autheticate_user, only: [:show, :create, :update, :destroy]
 
   def index
     @students = Student.includes(:experiences, :educations, :skills, :capstones).all
